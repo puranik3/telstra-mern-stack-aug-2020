@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .col {
+                float: left;
+                width: 30%;
+                text-align: justify;
+                padding: 0 2.5%;
+                margin: 10px 0;
+            }
+
+            .row .col:nth-child(3n + 1) {
+                padding-left: 0;
+            }
+            
+            .row .col:nth-child(3n) {
+                padding-right: 0;
+            }
+            
+            @media all and (max-width : 640px) { /* width of viewport <= 640px */
+                .col {
+                    width: 100%;
+                    padding: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col">Col 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tenetur dolores minima natus fugit corrupti consequatur inventore perspiciatis eaque, omnis id atque sunt ullam consectetur impedit iste sapiente dolor rem.</div>
+            <div class="col">Col 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quos excepturi voluptatum unde magni corrupti molestiae iusto, tempore tempora laudantium possimus dolorem aperiam veniam mollitia iste? Aspernatur aperiam asperiores quia.
+            </div>
+            <div class="col">Col 3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam eum placeat recusandae distinctio itaque vitae dicta laborum ipsam quo deleniti fugit, ipsa asperiores dolorum velit beatae, quas doloribus molestiae laboriosam!</div>
+            <div class="col">Col 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tenetur dolores minima natus fugit corrupti consequatur inventore perspiciatis eaque, omnis id atque sunt ullam consectetur impedit iste sapiente dolor rem.</div>
+            <div class="col">Col 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quos excepturi voluptatum unde magni corrupti molestiae iusto, tempore tempora laudantium possimus dolorem aperiam veniam mollitia iste? Aspernatur aperiam asperiores quia.
+            </div>
+            <div class="col">Col 3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam eum placeat recusandae distinctio itaque vitae dicta laborum ipsam quo deleniti fugit, ipsa asperiores dolorum velit beatae, quas doloribus molestiae laboriosam!</div>
+        </div>
+    </body>
+</html>

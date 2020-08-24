@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .row {
+                overflow: hidden; /* takes care of height of floated children */
+            }
+
+            .col-2 {
+                float: left;
+                width: 45%;
+                padding: 5%
+            }
+
+            .col-2:nth-child(2n + 1) {
+                padding-left: 0;
+            }
+            
+            .col-2:nth-child(2n) {
+                padding-right: 0;
+            }
+
+            .img-fluid {
+                width: 100%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Latest Updates</h2>
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/row-1.jpg" class="img-fluid" />
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </body>
+</html>
