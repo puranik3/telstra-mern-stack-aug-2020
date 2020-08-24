@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            p#y {
+                color: yellow;
+            }
+
+            /* id selector has higher precedence than class selector */
+            #y {
+                color: magenta;
+            }
+            
+            /* class selector has higher precedence than tag selector */
+            .x {
+                color: olive
+            }
+
+            p {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="a" id="b">
+            <p class="x" id="y">
+                Paragraph
+            </p>
+        </div>
+    </body>
+</html>

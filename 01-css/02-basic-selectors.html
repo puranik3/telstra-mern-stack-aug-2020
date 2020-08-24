@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* 
+                element / type selector
+            */
+            p {
+                font-size: 2em;
+            }
+
+            .highlight {
+                background-color: yellow;
+            }
+
+            .introduction {
+                font-weight: 700; /* 100, 200, 300 , 900 */
+            }
+
+            #div-3 {
+                font-style: italic;
+            }
+
+            [target="_blank"] {
+                color: crimson;
+            }
+            
+            /* author styles always win */
+            div {
+                display: inline;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="highlight introduction">Parahgraph 1</p>
+        <div class="introduction">Division 1</div>
+        <div class="introduction">Division 2</div>
+        <div class="introduction" id="div-3">Division 3</div>
+        <p class="conclusion">Parahgraph 2</p>
+        <div class="highlight conclusion">Division 2</div>
+        <a href="./01-how-to-include-css.html" target="_blank">Link 1</a>
+        <a href="./01-how-to-include-css.html">Link 2</a>
+    </body>
+</html>

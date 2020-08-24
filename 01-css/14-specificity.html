@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* (0, num_ids, num_classes, num_types) */
+            /* specificity : (0, 1, 2, 2) */
+            div.a p.x#y {
+                color: yellow;
+            }
+
+            /* specificity : (0, 1, 2, 2) */
+            div.a#b p.x {
+                color: magenta;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="a" id="b">
+            <p class="x" id="y">
+                Paragraph
+            </p>
+        </div>
+    </body>
+</html>
