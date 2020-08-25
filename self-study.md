@@ -20,6 +20,8 @@
 
 -- JS --
 - Object.seal(), Object.freeze(), Object.defineProperty()
+- How to define statis member functions of a class
+- Concept of mixins in JavaScript
 
 # Exercise
 - Design a 4-column layout
