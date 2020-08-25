@@ -9,6 +9,7 @@
 -- JS --
 - bactick strings
 - !==
+- while, do..while
 - 2d arrays
 
 # Self-exploration (not part of quiz)
@@ -17,7 +18,7 @@
 /* clearfix class (not easy) */
 
 -- JS --
-- while, do..while
+- Object.seal(), Object.freeze(), Object.defineProperty()
 
 # Exercise
 - Design a 4-column layout
