@@ -8,14 +8,15 @@
 - Exercises 23, 26 from exercises.md
 
 # Self-exploration
-/* rem - multiple of root element value */
-/* max-width and min-width */
-/* explore border related properties */
-/* explore margin related properties */
-/* font and text related properties - text-align, text-transform */
-/* clear */
+## CSS
+- rem - multiple of root element value
+- max-width and min-width
+- explore border related properties
+- explore margin related properties
+- font and text related properties - text-align, text-transform
+- clear property (used along with float)
 
--- JS --
+## JS
 - bactick strings
 - !==
 - while, do..while
@@ -23,11 +24,12 @@
 - Function apply(), i.e. Function.prototype.apply() - when is it useful (when compared to call)
 
 # Self-exploration (not part of quiz)
-/* background-position, background-size, background-repeat, background (shorthand) */
-/* pseudo element */
-/* clearfix class (not easy) */
+## CSS
+- background-position, background-size, background-repeat, background (shorthand)
+- pseudo element (will be covered later)
+- clearfix class (not easy)
 
--- JS --
+## JS
 - Object.seal(), Object.freeze(), Object.defineProperty()
 - How to define statis member functions of a class
 - Concept of mixins in JavaScript
