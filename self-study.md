@@ -9,11 +9,15 @@
 -- JS --
 - bactick strings
 - !==
+- 2d arrays
 
 # Self-exploration (not part of quiz)
 /* background-position, background-size, background-repeat, background (shorthand) */
 /* pseudo element */
 /* clearfix class (not easy) */
+
+-- JS --
+- while, do..while
 
 # Exercise
 - Design a 4-column layout
