@@ -58,3 +58,4 @@ You can find the Workshops Server [here](http://workshops-server.herokuapp.com/)
 ## Further study
 - [One page tutorial on ES2015 features](https://babeljs.io/docs/en/learn)
 - [Wes Bos JavaScript 30 course - 30 apps built using JS](https://wesbos.com/javascript30/)
+- [How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm)
