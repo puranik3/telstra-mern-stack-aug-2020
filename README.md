@@ -1,5 +1,6 @@
 # Exercises (in class)
 - Aug 25 - exercise 2 : 14, 15, 16, 17, 18, 19 (almost done in class), 20, 21, 22, 38, 38b, 39 (optional), 40 (optional)
+- Aug 26 - exercises 27, 28, 29, 30
 
 # Exercises (self-study - part of quiz/hands-on)
 - Build a form of your choice with various types of inputs. Suggestions - travel booking (say hotel reservation, airline search, user profile form etc.). Style it neatly using CSS.
@@ -7,6 +8,7 @@
 - Design a 3-column layout with first column being twice the width of 2nd and 3rd columns
 - Make the Telstra page responsive - take a look at how Telstra page shows up and make it according to that (for various devices)
 - Exercises 23, 26 from exercises.md
+- Calculator implementation in JS
 
 # Self-exploration (part of quiz/hands-on)
 ## CSS
