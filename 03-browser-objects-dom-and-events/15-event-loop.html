@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button>Click me</button>
+
+        <script>
+            // there is a queue of functions that are waiting to be executed - event queue
+            // the JS runtime will keep "polling" this queue
+            // when it sees a function + event object enqueued, it picks them up and calls the function and passes the event object to it
+            // once the runtime executes the function, it repeats this process
+            document.querySelector( 'button' ).onclick = function() {
+                alert( 'Button clicked' );
+            };
+
+            console.log( 'click handling has been set up' )
+
+            setTimeout(() => {
+                // takes few seconds
+                for( let i = 0; i < 100000; i++ ) {
+                    for( let j = 0; j < 100000; j++ ) {
+                        ;
+                    }
+                }
+                console.log( 'done with looping' );
+            }, 2000);
+        </script>
+    </body>
+</html>

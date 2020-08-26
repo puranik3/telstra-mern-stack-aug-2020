@@ -9,6 +9,7 @@
 - Make the Telstra page responsive - take a look at how Telstra page shows up and make it according to that (for various devices)
 - Exercises 23, 26 from exercises.md
 - Calculator implementation in JS
+- Exercises 24, 25 from exercises.md
 
 # Self-exploration (part of quiz/hands-on)
 ## CSS
@@ -30,6 +31,7 @@
 - seting, checking, removing attributes
 - removing class, checking if a class exists
 - how can we figure out if shift key or ctrl key is pressed when button is clicked?
+- Array reduce() method
 
 # Self-exploration (not part of quiz)
 ## CSS
