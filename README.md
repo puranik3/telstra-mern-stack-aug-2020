@@ -54,6 +54,7 @@ You can find the Workshops Server [here](http://workshops-server.herokuapp.com/)
 - [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web) - Good and comprehensive reference for all front-end web technologies
 - [Good book on JS (free)](https://eloquentjavascript.net/)
 - [The Modern JavaScript Tutorial - javascript.info](https://javascript.info/) - Great for learning JavaScript in-depth
+- [For CSS - Kevin Powell's channel on YouTube](https://www.youtube.com/user/KepowOb)
 
 ## Further study
 - [One page tutorial on ES2015 features](https://babeljs.io/docs/en/learn)
