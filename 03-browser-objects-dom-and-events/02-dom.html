@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Heading</h1>
+        <p class="x" id="para-1">
+            Para 1
+            <a href="#" id="link-1" class="y">Link 1</a>
+            <a href="#">Link 2</a>
+        </p>
+        <p>Para 2</p>
+
+        <script>
+            const para1 = document.getElementById( 'para-1' );
+            console.log( para1 );
+
+            const link_1 = para1.getElementsByClassName( 'y' );
+            console.log( link_1[0] );
+            
+            const link_1_1 = para1.querySelector( 'a[href].y' );
+            console.log( link_1_1 );
+            
+            // object that looks like an array
+            const link_1_2 = para1.querySelectorAll( 'a[href].y' );
+            console.log( link_1_2[0] );
+        </script>
+    </body>
+</html>

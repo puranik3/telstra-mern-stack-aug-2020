@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .panel-heading {
+                padding: 10px;
+                background-color: crimson;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Para 1</p>
+
+        <script>
+            const p = document.querySelector( 'p' );
+
+            p.style.border = '1px solid black';
+            p.classList.add( 'panel-heading' );
+
+            console.log( p.style.color );
+        </script>
+    </body>
+</html>

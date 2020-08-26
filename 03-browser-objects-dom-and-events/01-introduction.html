@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* we need rounded corners for the border */
+            /* themes -> primary, success, error */
+            .panel {
+                border-width: 1px;
+                border-style: solid;
+                margin: 0.75em 0;
+                border-radius: 5px;
+            }
+
+            .panel-primary {
+                border-color: navy;
+            }
+            
+            .panel-success {
+                border-color: olive;
+            }
+            
+            .panel-error {
+                border-color: crimson;
+            }
+
+            .panel-heading, .panel-body {
+                padding: 0.75em;
+            }
+
+            .panel-heading {
+                color: white;
+                cursor: pointer;
+            }
+
+            .panel-primary .panel-heading {
+                background-color: navy;
+            }
+            
+            .panel-success .panel-heading {
+                background-color: olive;
+            }
+            
+            .panel-error .panel-heading {
+                background-color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="panel panel-primary">
+            <div class="panel-heading">What is CSS?</div>
+            <div class="panel-body">
+                CSS is a language for styling web pages. It stands for Cascading StyleSheets.
+            </div>
+        </div>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">What is JS?</div>
+            <div class="panel-body">
+                JS is for scripting in web pages
+            </div>
+        </div>
+        
+        <div class="panel panel-error">
+            <div class="panel-heading">What is CSS?</div>
+            <div class="panel-body">
+                CSS is a language for styling web pages. It stands for Cascading StyleSheets.
+            </div>
+        </div>
+
+        <script>
+            const panelHeadings = document.querySelectorAll( '.panel-heading' );
+
+            function onPanelHeadingClick( event ) {
+                const panelBody = event.target.nextElementSibling;
+
+                if( panelBody.style.display === 'none' ) {
+                    panelBody.style.display = 'block';
+                } else {
+                    panelBody.style.display = 'none';
+                }
+            };
+
+            for( let i = 0; i < panelHeadings.length; i++ ) {
+                panelHeadings[i].onclick = onPanelHeadingClick;
+            }
+        </script>
+    </body>
+</html>

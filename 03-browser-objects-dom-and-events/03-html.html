@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p class="x" id="para-1">
+            Para 1
+            <a href="#" id="link-1" class="y">Link 1</a>
+            <a href="#">Link 2</a>
+        </p>
+        
+        <p class="x" id="para-2">
+            Para 1
+            <a href="#" id="link-1" class="y">Link 1</a>
+            <a href="#">Link 2</a>
+        </p>
+
+        <textarea></textarea>
+
+        <script>
+            const para1 = document.querySelector( '#para-1' );
+            console.log( para1 );
+
+            // get the current html within an element
+            console.log( para1.innerHTML ); // returns HTML within as a string
+
+            para1.innerHTML = `
+                <span>Span 1</span>
+                <a href="#">Link 3</a>
+                <span>Span 2</span>
+            `;
+
+            para1.innerHTML = para1.innerHTML + `<script>para1.onclick = function() { alert( "hi" ); }<` + `/script>`;
+
+            const para2 = document.querySelector( '#para-2' );
+            console.log( para2 );
+            
+            console.log( para2.innerText ); // returns text content within itself and within the children nodes
+
+            para2.innerText = `
+                <span>Span 1</span>
+                <a href="#">Link 3</a>
+                <span>Span 2</span>
+                <script>jsdbjkb</${'script'}>
+            `;
+
+
+        </script>
+    </body>
+</html>

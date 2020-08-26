@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button>Click me (1)</button>
+        <button>Click me (2)</button>
+        Name: <input type="text" id="name" />
+
+        <script>
+            document.querySelector( 'button:nth-of-type(1)' ).onclick = function( event ) {
+                console.log( 'logic 1' );
+                console.log( event );
+                console.log( event.clientX, event.clientY );
+            };
+            
+            document.querySelector( 'button:nth-of-type(1)' ).onclick = function( event ) {
+                console.log( 'logic 2' );
+                console.log( event );
+                console.log( event.clientX, event.clientY );
+            };
+            
+            function onButton2Click( event ) {
+                console.log( 'logic 1' );
+            }
+
+            document.querySelector( 'button:nth-of-type(2)' ).addEventListener( 'click', onButton2Click );
+            
+            document.querySelector( 'button:nth-of-type(2)' ).addEventListener( 'click', function( event ) {
+                console.log( 'logic 2' );
+            });
+
+            setTimeout(() => {
+                document.querySelector( 'button:nth-of-type(2)' ).removeEventListener( 'click', onButton2Click );
+            }, 10000 );
+        </script>
+    </body>
+</html>

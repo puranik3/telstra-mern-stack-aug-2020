@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            Div 1
+            <p>
+                Para 1
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+            </p>
+            <p>Para 2</p>
+        </div>
+
+        <script>
+            const div = document.querySelector( 'div' );
+
+            console.log( div.parentNode );
+            console.log( div.children );
+            console.log( div.childNodes );
+
+            console.log( div.nextSibling );
+            console.log( div.nextSibling );
+            console.log( div.nextElementSibling );
+        </script>
+    </body>
+</html>

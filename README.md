@@ -23,6 +23,11 @@
 - while, do..while
 - 2d arrays
 - Function apply(), i.e. Function.prototype.apply() - when is it useful (when compared to call)
+- getElementsByClassName(), getElementsByTagName()
+- DOM node inserBefore() method to add a child before another child
+- seting, checking, removing attributes
+- removing class, checking if a class exists
+- how can we figure out if shift key or ctrl key is pressed when button is clicked?
 
 # Self-exploration (not part of quiz)
 ## CSS
@@ -36,6 +41,9 @@
 - Object.seal(), Object.freeze(), Object.defineProperty()
 - How to define static member functions of a class
 - Concept of mixins in JavaScript
+- Can we add new nodes directly to children[] NodeList etc.?
+- why style and script dynamically injected dont work
+- event bubbling and event.stopPropagation()
 
 ## Awesome Store Server
 You can find the Awesome Store Server [here](https://awesome-store-server.herokuapp.com)

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="container">
+            sdkbjkd
+        </p>
+
+
+        <p>
+            Para 2
+        </p>
+
+        <Script>
+            const container = document.querySelector( '#container' );
+
+            const span1 = document.createElement( 'span' );
+            span1.innerText = 'Span 1';
+
+            container.appendChild( span1 );
+            
+            const span2 = document.createElement( 'span' );
+            span2.innerText = 'Span 2';
+
+            container.appendChild( span2 );
+
+            // insertBefore()
+
+            const para2 = container.nextElementSibling;
+            const parent = container.parentNode;
+
+            parent.insertBefore( span1, para2 );
+
+            // remove a child node
+            setTimeout(() => {
+                container.removeChild( span2 );
+            }, 5000 );
+        </Script>
+    </body>
+</html>
