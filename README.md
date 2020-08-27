@@ -49,6 +49,9 @@
 - why style and script dynamically injected dont work
 - event bubbling and event.stopPropagation()
 
+## TS
+- The "unknown" type vs "any" type
+
 ## Awesome Store Server
 You can find the Awesome Store Server [here](https://awesome-store-server.herokuapp.com)
 You can find the Workshops Server [here](http://workshops-server.herokuapp.com/)
