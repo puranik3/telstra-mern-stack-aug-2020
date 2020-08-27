@@ -1,7 +1,8 @@
 // Advantages of interfaces vs Type alias
-// extending interfaces is more understandable
-// interface Employee extends Person { ... }
-// you can split interface definition across multiple files - the definitions are merged
+    // extending interfaces is more understandable
+    // interface Employee extends Person { ... }
+    // you can split interface definition across multiple files - the definitions are merged
+
 // Interfaces can be used as 
     // 1. type for an object
     // 2. implement in classes
