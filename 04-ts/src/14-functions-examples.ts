@@ -1,27 +1,17 @@
-// another syntax for defining types for functions using expression / arrow function syntax
+type TransformFn = ( x : number ) => number;
 
-function contains1( arr : number[], key : number ) : boolean {
+function sumArray( arr : number[], transform : TransformFn ) {
+    let sum = 0;
+
     for( let i = 0; i < arr.length; i++ ) {
-        if( arr[i] == key ) {
-            return true;
-        }
+        sum += transform( arr[i] );
     }
 
-    return false;
+    return sum;
 }
 
-type ArraySearchFn = ( arr : number[], key : number ) => boolean;
+const square : TransformFn = x => x * x;
+const cube : TransformFn = x => x * x * x;
 
-const contains2 : ArraySearchFn = ( arr, key ) => {
-    for( let i = 0; i < arr.length; i++ ) {
-        if( arr[i] == key ) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-export {}
-
-contains1( [ 1, 2, 3, 4, 5, 6 ], 4 );
+sumArray( [ 1, 2, 3, 4, 5 ], square );
+sumArray( [ 1, 2, 3, 4, 5 ], ( x : number ) => x );
