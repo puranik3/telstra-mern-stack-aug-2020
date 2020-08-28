@@ -24,7 +24,8 @@ class Person implements IPerson {
     // }
 
     // option 2 - define access specifiers in an empty body constructor (does everything done in option 1)
-    constructor( public name: string, public age : number, private readonly aadhaar? : string ) {}
+    constructor( public name: string, public age : number, private readonly aadhaar? : string ) {
+    }
 
     /*public */celebrateBirthday() { // by default all data members and methods are public
         this.age++;
