@@ -19,6 +19,9 @@ const john = {
     }
 };
 
+const key = "name";
+console.log( john[key] );
+
 console.log( john.name );
 console.log( john.address.city );
 console.log( john.children[1] );

@@ -25,3 +25,11 @@ const item2 : Item<FullName> = {
     },
     price: 45000
 };
+
+function printItem1<T>( item : Item<T> ) { }
+
+// U extends Item<any> restricts type U to a concrete implementation of Item<>
+function printItem2<U extends Item<any>>( item : U ) { }
+
+printItem2<LongName>
+printItem2<Item<LongName>>
