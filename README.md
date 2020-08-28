@@ -52,9 +52,9 @@
 ## TS
 - The "unknown" type vs "any" type
 
-## Awesome Store Server
-You can find the Awesome Store Server [here](https://awesome-store-server.herokuapp.com)
-You can find the Workshops Server [here](http://workshops-server.herokuapp.com/)
+## Workshops Server and Awesome Store Server
+- Class application will use this - You can find the Workshops Server [here](http://workshops-server.herokuapp.com/)
+- For practice - You can find the Awesome Store Server [here](https://awesome-store-server.herokuapp.com)
 
 ## References
 - [Emmet syntax for easy HTML coding](https://emmet.io/)
