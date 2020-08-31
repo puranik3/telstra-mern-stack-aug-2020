@@ -10,7 +10,7 @@ function serveFile( filePath, req, res ) {
             return res.end( err.message );
         }
 
-        res.setHeader( 'Content-Type', 'text/html' );
+        // res.setHeader( 'Content-Type', 'text/html' );
         res.end( contents ); // status is set by default to 200
     });
 }
@@ -37,7 +37,8 @@ const server = http.createServer(( req, res ) => {
             serveFile( filePath, req, res );
             break;
         default:
-            res.end( `have a great day. bye..` );
+            filePath = path.join( __dirname, 'public', parsedUrl.pathname );
+            serveFile( filePath, req, res );
     }
 });
 
