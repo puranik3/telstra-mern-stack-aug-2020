@@ -22,6 +22,7 @@
 
 ## Node.JS
 - __filename for a node.js script
+- ~ usage in semver
 
 ## JS
 - bactick strings

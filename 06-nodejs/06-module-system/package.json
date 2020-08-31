@@ -1,0 +1,18 @@
+{
+  "name": "06-module-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "arithmetic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.3"
+  }
+}
