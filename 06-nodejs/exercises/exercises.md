@@ -39,3 +39,11 @@ Each listed file/folder is a hyperlink. When a file/folder is clicked, the URL s
 __Extra credits__:
 * You can also have a .. entry in the folder listing. Clicking it takes the user to the parent folder listing.
 * Give an option to the user to create a new file/folder, under the current folder, through the UI.
+
+6. Create a module to calculates areas of various shapes.
+    - Square (private)
+    - Rectangle (public)
+    - Circle (public)
+    Make use of this module in another module (i.e. file)
+
+7. Explore the chalk module on npmjs.com - install it and use it.
