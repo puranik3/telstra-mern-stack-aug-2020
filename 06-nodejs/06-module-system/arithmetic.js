@@ -6,7 +6,7 @@ const divide = ( x, y ) => x / y;
 
 const PI = 3.14;
 
-const areaOfCircle = r => 2 * PI * r;
+const areaOfCircle = r => PI * r * r;
 
 module.exports = {
     sum,
