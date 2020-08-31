@@ -3,25 +3,38 @@ const url = require( 'url' );
 const path = require( 'path' );
 const fs = require( 'fs' );
 
+function serveFile( filePath, req, res ) {
+    fs.readFile( filePath, 'utf8', ( err, contents ) => {
+        if( err ) {
+            res.statusCode = 500;
+            return res.end( err.message );
+        }
+
+        res.setHeader( 'Content-Type', 'text/html' );
+        res.end( contents ); // status is set by default to 200
+    });
+}
+
 const server = http.createServer(( req, res ) => {
     console.log( req.url );
     
     const parsedUrl = url.parse( req.url, true );
     console.log( __dirname );
 
-    // EXERCISE: Extend this to serve 3 files (home, about, contact) - these together form a website (pages must have links to each other in a navigation menu)
+    let filePath;
+
     switch( parsedUrl.pathname ) {
         case '/about':
-            const aboutPath = path.join( __dirname, 'public', 'about.html' );
-            fs.readFile( aboutPath, 'utf8', ( err, contents ) => {
-                if( err ) {
-                    res.statusCode = 500;
-                    return res.end( err.message );
-                }
-
-                res.setHeader( 'Content-Type', 'text/html' );
-                res.end( contents ); // status is set by default to 200
-            });
+            filePath = path.join( __dirname, 'public', 'about.html' );
+            serveFile( filePath, req, res );
+            break;
+        case '/home':
+            filePath = path.join( __dirname, 'public', 'home.html' );
+            serveFile( filePath, req, res );
+            break;
+        case '/contact':
+            filePath = path.join( __dirname, 'public', 'contact.html' );
+            serveFile( filePath, req, res );
             break;
         default:
             res.end( `have a great day. bye..` );
