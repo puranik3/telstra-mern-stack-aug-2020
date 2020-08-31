@@ -9,6 +9,7 @@ const server = http.createServer(( req, res ) => {
     // 2nd argument true -> parses the query string
     const parsedUrl = url.parse( req.url, true )
 
+    // array.slice( start_index, one_past_last_index ) creates a new array with items in mentioned range of indexes
     const pathParts = parsedUrl.pathname.split( '/' ).slice( 1 );
     console.log( pathParts );
     
