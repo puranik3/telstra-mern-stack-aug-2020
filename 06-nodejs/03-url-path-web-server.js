@@ -8,10 +8,14 @@ const server = http.createServer(( req, res ) => {
     
     // 2nd argument true -> parses the query string
     const parsedUrl = url.parse( req.url, true )
-    const queryParams = parsedUrl.query;
+
+    const pathParts = parsedUrl.pathname.split( '/' ).slice( 1 );
+    console.log( pathParts );
     
-    res.write( `hello ${queryParams.name}\n` );
-    res.write( `how is the weather in ${queryParams.city}\n` );
+    res.write( `path param 1 = ${pathParts[0]}\n` );
+    res.write( `path param 2 = ${pathParts[1]}\n` );
+    res.write( `path param 3 = ${pathParts[2]}\n` );
+
     res.end( `have a great day. bye..` );
 });
 
