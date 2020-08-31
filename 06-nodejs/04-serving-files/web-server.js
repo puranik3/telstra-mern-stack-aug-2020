@@ -9,6 +9,7 @@ const server = http.createServer(( req, res ) => {
     const parsedUrl = url.parse( req.url, true );
     console.log( __dirname );
 
+    // EXERCISE: Extend this to serve 3 files (home, about, contact) - these together form a website (pages must have links to each other in a navigation menu)
     switch( parsedUrl.pathname ) {
         case '/about':
             const aboutPath = path.join( __dirname, 'public', 'about.html' );
