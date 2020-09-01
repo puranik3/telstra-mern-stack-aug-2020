@@ -19,7 +19,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr></tr>
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td>
+                                <img src="<%= product.imageUrl %>" />
+                            </td>
+                            <td><%= product.name %></td>
+                            <td><%= product.price %></td>
+                        </tr>
+                    <% })%>
                 </tbody>
             </table>
         </div>

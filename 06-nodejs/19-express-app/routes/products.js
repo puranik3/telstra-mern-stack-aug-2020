@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get( '/products', ( req, res ) => {
     // the path is wrt views/ folder - the .ejs extension should not be given
-    res.render( 'products' );
+    res.render( 'products', data );
 });
 
 module.exports = router;
