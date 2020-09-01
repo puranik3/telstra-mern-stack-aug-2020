@@ -21,6 +21,12 @@ app.use( '/', ( req, res, next ) => {
 
 app.use( express.static( path.join( __dirname, 'public' ) ) );
 
+// to parse form data
+app.use( express.urlencoded() );
+
+// ajax-submitted JSON data
+app.use( express.json() );
+
 app.use( indexRouter );
 app.use( productsRouter );
 

@@ -23,4 +23,9 @@ router.get( '/products/:id', ( req, res ) => {
     res.json( product );
 });
 
+router.post( '/products', ( req, res ) => {
+    console.log( req.body );
+    res.json( req.body );
+});
+
 module.exports = router;
