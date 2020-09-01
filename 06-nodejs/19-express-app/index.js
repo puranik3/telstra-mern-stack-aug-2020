@@ -1,6 +1,10 @@
 const express = require( 'express' );
+const indexRouter = require( './routes/index' );
 
+// Express Application object
 const app = express();
+
+app.use( indexRouter );
 
 const PORT = process.env.PORT || 3000;
 
