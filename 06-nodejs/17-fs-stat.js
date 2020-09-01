@@ -1,0 +1,1 @@
+// Explore and use fs.stat() to print some details of a file (file properties)

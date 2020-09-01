@@ -23,6 +23,11 @@
 ## Node.JS
 - __filename for a node.js script
 - ~ usage in semver
+- totalmem(), freemem(), userInfo() of os module
+- process object's pid, cwd()
+- process.exit()
+- 'exit' event of process object
+- path module's parse(), dirname(), basename(), extname()
 
 ## JS
 - bactick strings
