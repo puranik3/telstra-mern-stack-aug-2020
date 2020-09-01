@@ -29,6 +29,7 @@
 - 'exit' event of process object
 - path module's parse(), dirname(), basename(), extname()
 - explore events emitted by streams
+- Error handling in Express in detail - http://expressjs.com/en/guide/error-handling.html
 
 ## JS
 - bactick strings
