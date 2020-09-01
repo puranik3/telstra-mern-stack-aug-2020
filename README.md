@@ -28,6 +28,7 @@
 - process.exit()
 - 'exit' event of process object
 - path module's parse(), dirname(), basename(), extname()
+- explore events emitted by streams
 
 ## JS
 - bactick strings
@@ -60,6 +61,9 @@
 
 ## TS
 - The "unknown" type vs "any" type
+
+## Node.js
+- Using read stream to read a file (you have to use the events fired on the read stream object)
 
 ## Workshops Server and Awesome Store Server
 - Class application will use this - You can find the Workshops Server [here](http://workshops-server.herokuapp.com/)
