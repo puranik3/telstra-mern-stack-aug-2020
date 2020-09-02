@@ -44,6 +44,10 @@
 - how can we figure out if shift key or ctrl key is pressed when button is clicked?
 - Array reduce() method
 
+## MongoDB
+- Explore how to connect to MongoDB server - https://docs.mongodb.com/drivers/node/quick-start. Connect to some DB (say persons), and get a document from a collection using findOne() (say person with name John) and print in console.
+
+
 # Self-exploration (not part of quiz)
 ## CSS
 - background-position, background-size, background-repeat, background (shorthand)
@@ -65,6 +69,9 @@
 
 ## Node.js
 - Using read stream to read a file (you have to use the events fired on the read stream object)
+
+## MongoDB
+- populate() function to get nested object in query
 
 ## Workshops Server and Awesome Store Server
 - Class application will use this - You can find the Workshops Server [here](http://workshops-server.herokuapp.com/)
