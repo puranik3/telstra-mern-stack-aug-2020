@@ -15,6 +15,7 @@ router.get( '/products', ( req, res ) => {
         res.json( data.products );
     } else {
         // the path is wrt views/ folder - the .ejs extension should not be given
+        // when we pass an object to render() the object cannot be directly used in ejs file - but its properties can be used
         res.render( 'products', data );
     }
 });
