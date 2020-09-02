@@ -1,0 +1,10 @@
+- Atlas - MongoDB in the Cloud (Managed)
+- Local
+    - Community server - free
+    - Enterprise server - paid
+- Tools
+    - mongo (Database client)
+    - mongod (Database server)
+    - mongos
+    - mongoimport
+    - ....

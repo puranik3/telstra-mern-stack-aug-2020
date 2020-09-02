@@ -1,0 +1,3 @@
+Windows Start -> Search for "environment variables" (Under Settings) -> Edit under User section -> Click on "Path" variable -> Edit -> add the new entry (example "C:\Program Files\Mongo DB Server\4.4\bin" or wherever the mongo DB tools are in your computer)
+
+Close the command prompt and open again
