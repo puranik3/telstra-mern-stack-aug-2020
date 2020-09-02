@@ -1,0 +1,2 @@
+- cursor maintains only selected documents in skip + limit?
+- cursor can be reset?
