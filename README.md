@@ -1,3 +1,7 @@
+# Useful commands
+- TO find process ocupying a port - lsof -i :port
+- To kill directly on Linux: fuser -n tcp -k <port-number> 
+
 # Exercises (in class)
 - Aug 25 - exercise 2 : 14, 15, 16, 17, 18, 19 (almost done in class), 20, 21, 22, 38, 38b, 39 (optional), 40 (optional)
 - Aug 26 - exercises 27, 28, 29, 30
