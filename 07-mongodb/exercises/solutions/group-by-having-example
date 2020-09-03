@@ -1,0 +1,23 @@
+- Customer  State      Amount
+- Ram       TN         200
+- Rita      TN         100
+- Shyam     Kerala     300
+- Sita      Kerala     250
+- Gita      Karn       500
+- Rahul     Karn       300
+
+GROUP BY
+- State     Expenditure Average Count    Customer_Amounts
+- TN        300         150     2        [ 200, 100 ]
+- Kerala    550         275     2        [ 300, 250 ]
+- Karn      800         400     2        [ 500, 300 ]
+
+ORDER 
+
+HAVING
+- State     Expenditure Average Count
+- Karn      800         400     2
+- Kerala    550         275     2
+
+
+- TN        300         150     2
