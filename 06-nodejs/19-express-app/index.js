@@ -3,6 +3,9 @@ const express = require( 'express' );
 const indexRouter = require( './routes/index' );
 const productsRouter = require( './routes/products' );
 
+// execute database connection scipt (data/init.js)
+require( './data/init' );
+
 // Express Application object
 const app = express();
 

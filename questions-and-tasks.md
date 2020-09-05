@@ -7,3 +7,4 @@
 - database design in mongodb
 - connecting mongo to node
 - bootstrap intro
+- Promises and async..await
