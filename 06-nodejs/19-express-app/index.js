@@ -1,10 +1,10 @@
+// execute database connection scipt (data/init.js)
+require( './data/init' );
+
 const path = require( 'path' );
 const express = require( 'express' );
 const indexRouter = require( './routes/index' );
 const productsRouter = require( './routes/products' );
-
-// execute database connection scipt (data/init.js)
-require( './data/init' );
 
 // Express Application object
 const app = express();
@@ -31,7 +31,7 @@ app.use( express.urlencoded() );
 app.use( express.json() );
 
 app.use( indexRouter );
-app.use( productsRouter );
+app.use( '/products', productsRouter );
 
 app.use(( req, res, next ) => {
     const error = new Error( 'Page not found' );
