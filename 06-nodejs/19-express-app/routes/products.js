@@ -6,34 +6,50 @@ const Product = mongoose.model( 'Product' );
 
 const router = express.Router();
 
-router.get( '/', ( req, res ) => {
+router.get( '/', ( req, res, next ) => {
     Product
         .find()
+        // .select( '' ) // projection
         .exec(( err, results ) => {
             if( err ) {
                 // keeping things simple we will send the backend error to the frontend - not a good idea usually
-                res.status( 500 ).json({
-                    message: err.message
-                });
+                err.status = 500;
+                return next( err );
             }
 
             res.status( 200 ).json( results );
         });
 });
 
-router.get( '/:id', ( req, res ) => {
+router.get( '/:id', ( req, res, next ) => {
     res.send( 'I will send products' );
 });
 
-router.post( '/', ( req, res ) => {
+router.post( '/', ( req, res, next ) => {
+    const product = req.body;
+    
+    if( !product ) {
+        const err = new Error( 'Product should be included in request body' );
+        err.status = 403;
+        return next( err );
+    }
+
+    Product
+        .create( product, ( err, productWithId ) => {
+            if( err ) {
+                err.status = 500;
+                return next( err );
+            }
+
+            res.status( 200 ).json( productWithId );
+        });
+});
+
+router.put( '/:id', ( req, res, next ) => {
     res.send( 'I will send products' );
 });
 
-router.put( '/:id', ( req, res ) => {
-    res.send( 'I will send products' );
-});
-
-router.delete( '/:id', ( req, res ) => {
+router.delete( '/:id', ( req, res, next ) => {
     res.send( 'I will send products' );
 });
 
