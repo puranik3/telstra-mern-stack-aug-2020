@@ -24,6 +24,9 @@
 - font and text related properties - text-align, text-transform
 - clear property (used along with float)
 
+## Bootstrap
+- Please explore buttons, card, alert, form, navbar
+
 ## Node.JS
 - __filename for a node.js script
 - ~ usage in semver
