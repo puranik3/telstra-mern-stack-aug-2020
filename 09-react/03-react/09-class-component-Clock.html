@@ -17,8 +17,29 @@
         <script type="text/babel">
             // Class-based component (stateful component)
             // Step 1: Define a class-based component called "Clock" that displays the message passed to it as a prop, and the current time. Add a state to hold the current time. When component mounts in the DOM, setup state to be updated every 1 second with current time.
+            class Clock extends React.Component {
+                constructor( props ) {
+                    super( props ); // this.props = props
+                }
+
+                render() {
+                    const time = (new Date()).toTimeString();
+
+                    return (
+                        <div>
+                            I am a class component
+                            {this.props.message} {time}
+                            {this.props.children}
+                        </div>
+                    );
+                }
+            }
 
             // Step 2: Render an instance of a Clock
+            // const clock = new Clock( el.props );
+            // el = clock.render()
+            // React will render el 
+            ReactDOM.render( <Clock message="The local time is">I am a child</Clock>, document.getElementById( 'root' ) );
         </script>
     </body>
 </html>
