@@ -17,8 +17,45 @@
         <script type="text/babel">
             // Function-based component (stateless component)
             // Step 1: Define a function-based component called "Clock" that displays the message passed to it as a prop, and the current time
+            const Clock = ( props ) => {
+                console.log( 'props = ', props );
+                const time = (new Date()).toTimeString();
 
+                return (
+                    <div>
+                        Hello Component
+                        <br />
+                        {props.message} {time}
+                        {props.children}
+                    </div>
+                );
+            };
+
+            const el = (
+                <Clock message="The local time is">
+                    <div>I am a div 1</div>
+                    <div>I am a div 2</div>
+                </Clock>
+            );
+
+            console.log( el );
+            
+            ReactDOM.render( el, document.getElementById( 'root' ) );
+            
             // Step 2: Render a new clock instance every 1 second
+            setInterval(() => {
+                const el = (
+                    <Clock message="The local time is">
+                        <div>I am a div 1</div>
+                        <div>I am a div 2</div>
+                    </Clock>
+                );
+                
+                ReactDOM.render( el, document.getElementById( 'root' ) );
+            }, 1000);
+
+
+            // <Clock></Clock> is same as <Clock />
         </script>
     </body>
 </html>
