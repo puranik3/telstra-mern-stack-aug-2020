@@ -32,8 +32,25 @@
             );
 
             // Step 1a: Render by passing an array of React elements
+            // ReactDOM.render( [ el1, el2 ], document.getElementById( 'root' ) );
+
             // Step 1b: Now try rendering by enclosing the elements within a container like a div, and rendering the container
+            // ReactDOM.render(
+            //     <div>
+            //         {el1}
+            //         {el2} 
+            //     </div>,
+            //     document.getElementById( 'root' )
+            // );
+
             // Step 1c: Now try rendering by enclosing the elements within a <React.Fragment></React.Fragment> - it does not create an unnecessary container in the DOM
+            ReactDOM.render(
+                <React.Fragment>
+                    {el1}
+                    {el2} 
+                </React.Fragment>,
+                document.getElementById( 'root' )
+            );
         </script>
     </body>
 </html>
