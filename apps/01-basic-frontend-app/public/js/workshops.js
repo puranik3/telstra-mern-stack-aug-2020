@@ -1,6 +1,7 @@
 "use strict";
 fetch("http://workshops-server.herokuapp.com/workshops")
     .then(function (response) {
+    console.log('hello!');
     return response.json();
 })
     .then(function (workshops) {
