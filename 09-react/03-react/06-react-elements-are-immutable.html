@@ -26,11 +26,14 @@
 
             // React element - a simpler abstraction of a DOM node
             console.log( el );
-
+            
             // you cannot modify a React element - it is immutable
             // Step 1: Try modifying properties of el, including props and props.children, and log the element. Are you able to do so?
-
+            
             ReactDOM.render( el, document.getElementById( 'root' ) );
+            
+            el.props.title = 'New title'; // error
+            // WE CANNOT DO DOM MANIPULATIONS USING THE REACT ELEMENT
         </script>
     </body>
 </html>

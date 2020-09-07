@@ -26,7 +26,9 @@
             // Check type, props and props.children in the logs
             console.log( el );
 
-            ReactDOM.render( el, document.getElementById( 'root' ) );
+            // DOM node is returned when ReactDOM renders a native HTML element
+            const x = ReactDOM.render( el, document.getElementById( 'root' ) );
+            console.log( x ); // the div DOM node created form the div element
         </script>
     </body>
 </html>
