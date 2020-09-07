@@ -91,6 +91,9 @@
 - [The Modern JavaScript Tutorial - javascript.info](https://javascript.info/) - Great for learning JavaScript in-depth
 - [For CSS - Kevin Powell's channel on YouTube](https://www.youtube.com/user/KepowOb)
 
+## Node
+- [Using Node.js with TypeScript](https://developer.okta.com/blog/2018/11/15/node-express-typescript)
+
 ## Further study
 - [One page tutorial on ES2015 features](https://babeljs.io/docs/en/learn)
 - [Wes Bos JavaScript 30 course - 30 apps built using JS](https://wesbos.com/javascript30/)
