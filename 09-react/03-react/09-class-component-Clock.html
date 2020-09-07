@@ -20,18 +20,30 @@
             class Clock extends React.Component {
                 constructor( props ) {
                     super( props ); // this.props = props
+                    
+                    this.state = {
+                        time: (new Date()).toTimeString(),
+                        x: 100
+                    };
                 }
 
                 render() {
-                    const time = (new Date()).toTimeString();
-
                     return (
                         <div>
                             I am a class component
-                            {this.props.message} {time}
+                            {this.props.message} {this.state.time}
                             {this.props.children}
                         </div>
                     );
+                }
+
+                componentDidMount() {
+                    setInterval(() => {
+                        // this.state will be updated, render will be called, and returned element will replace the current element
+                        this.setState({
+                            time: (new Date()).toTimeString()
+                        });
+                    }, 1000);
                 }
             }
 
@@ -39,6 +51,7 @@
             // const clock = new Clock( el.props );
             // el = clock.render()
             // React will render el 
+            // el.componentDidMount()
             ReactDOM.render( <Clock message="The local time is">I am a child</Clock>, document.getElementById( 'root' ) );
         </script>
     </body>
