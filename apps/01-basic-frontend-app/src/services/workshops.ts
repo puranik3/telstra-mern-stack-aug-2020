@@ -1,6 +1,7 @@
 import IWorkshop from '../models/IWorkshop';
 
 export function fetchAndShowWorkshops() {
+    // fetch( `http://localhost:3000/products` )
     fetch( `http://workshops-server.herokuapp.com/workshops` )
         .then(function( response : Response ) {
             return response.json();

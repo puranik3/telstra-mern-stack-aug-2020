@@ -7,7 +7,10 @@ mongoose.connect( 'mongodb://localhost/mystore', { useNewUrlParser: true } );
 
 const connection = mongoose.connection;
 
-connection.on( 'error', console.error.bind( console, 'connection error:') );
+connection.on( 'error', ( err ) => {
+    console.error.bind( console, 'connection error:', err.message );
+    process.exit( 0 );
+});
 
 connection.on('open', function() {
   console.log( 'connected to mongodb database' );

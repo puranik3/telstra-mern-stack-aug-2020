@@ -4,7 +4,7 @@
     "description": "",
     "scripts": {
         "clean": "rimraf public/js/* public/libs/*",
-        "copy": "cpx \"node_modules/normalize.css/*.css\" public/libs",
+        "copy": "cpx \"node_modules/{normalize.css,bootstrap/dist}/**/*\" public/libs",
         "build": "tsc --watch",
         "oldprestart": "npm run clean && npm run copy",
         "prestart": "npm-run-all clean copy",
@@ -14,6 +14,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "bootstrap": "^4.5.2",
         "normalize.css": "^8.0.1"
     },
     "devDependencies": {

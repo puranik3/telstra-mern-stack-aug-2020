@@ -5,20 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="libs/normalize.css">
+        <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/app.css">
         <link rel="stylesheet" href="css/nav.css">
     </head>
     <body>
         <div class="page">
-            <nav>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
-                    <ul>
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="/workshops.html">Workshops</a></li>
-                    </ul>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/workshops.html">Workshops</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
-            <main class="container">
+            <main class="container my-4">
                 <h1>Workshops App</h1>
                 <hr />
                 Welcome to workshops app! You can check out workshops happening in your city and nearby cities.
