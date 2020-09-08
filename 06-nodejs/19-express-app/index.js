@@ -3,6 +3,7 @@ require( './data/init' );
 
 const path = require( 'path' );
 const express = require( 'express' );
+const cors = require( 'cors' );
 const indexRouter = require( './routes/index' );
 const productsRouter = require( './routes/products' );
 
@@ -13,6 +14,8 @@ const app = express();
 // configure the templating engine to ejs ('views' and 'view engine' keys have to be set)
 app.set( 'views', path.join( __dirname, 'views' ) );
 app.set( 'view engine', 'ejs' );
+
+app.use( cors() );
 
 app.use( '/', ( req, res, next ) => {
     console.log( 'Received req at', (new Date()).toTimeString() );

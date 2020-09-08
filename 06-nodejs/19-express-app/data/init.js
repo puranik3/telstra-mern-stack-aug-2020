@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.set( 'useFindAndModify', false );
+mongoose.set('returnOriginal', false);
 
 // create models
 require( '../models/Product' );

@@ -1,5 +1,4 @@
 const express = require( 'express' );
-const path = require( 'path' );
 
 const mongoose = require( 'mongoose' );
 const Product = mongoose.model( 'Product' );
@@ -49,6 +48,9 @@ router.patch( '/:id', ( req, res, next ) => {
     const id = req.params.id;
     const product = req.body;
 
+    const reviews = product.reviews || [];
+    delete product.reviews;
+
     if( !product ) {
         const err = new Error( 'Product should be included in request body' );
         err.status = 403;
@@ -56,8 +58,8 @@ router.patch( '/:id', ( req, res, next ) => {
     }
 
     Product
-        .findByIdAndUpdate( id, { $set: product } )
-        .exec(( err, oldProduct, productWithUpdates ) => {
+        .findByIdAndUpdate( id, { $set: product, $addToSet: { reviews } } )
+        .exec(( err, productWithUpdates ) => {
             if( err ) {
                 err.status = 500;
                 return next( err );
