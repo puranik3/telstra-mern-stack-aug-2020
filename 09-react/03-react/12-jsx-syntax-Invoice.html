@@ -17,7 +17,7 @@
 
         <script type="text/babel">
             // Step 1: Define a function component "Invoice" that displays details of an invoice
-            function Invoice( /* destructure and accept customer name, items and coupon */ ) {
+            function Invoice( { items, coupon, customer} ) {
                 return (
                     <div className="invoice">
                         <div className="card border-primary">
@@ -25,7 +25,7 @@
                                 <h4 className="card-title">Invoice</h4>
                                 <hr />
                                 <p className="card-text">
-                                    Customer name: {/* customer name */}
+                                    Customer name: {customer}
                                 </p>
                             </div>
                         </div>
@@ -40,11 +40,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* line items */}
-                                    {/* One line for grand total */}
+                                    {
+                                        items.map( item => (
+                                            <tr>
+                                                <td>{item.name}</td>
+                                                <td>{item.quantity}</td>
+                                                <td>{item.price}</td>
+                                                <td>{item.price * item.quantity}</td>
+                                            </tr>
+                                        ))
+                                    }
                                 </tbody>
                             </table>
-                            Use coupon {/* */} to get a discount on your next purchase
+                            {
+                                coupon ? `Use coupon ${coupon} to get a discount on your next purchase` : null
+                            }
                         </div>
                         <footer>
                             {/* render children here */}
@@ -85,7 +95,13 @@
             };
 
             // Step 2: Render 2 invoice elements (one for John and one for Jane). Make sure to use an array/container/React.Fragment. Pass billingDetails and customerName as props. Pass 2 div elements that contains store address, and store email id as children.
-            
+            ReactDOM.render( 
+                <React.Fragment>
+                    <Invoice {...invoiceJohn} customer="John Doe" />
+                    <Invoice {...invoiceJane} customer="Jane Doe" />
+                </React.Fragment>,
+                document.getElementById( 'root' )
+            );
             
         </script>
     </body>
