@@ -17,8 +17,11 @@
 
         <script type="text/babel">
             // Step 2: Define a WeatherReport (function-based) component. Use the received props to display details in a Bootstrap card (b4-card-default). Make sure to use className="" instead of class="" to aply CSS classes within JSX.
+
+            // Please try this (optional) + Exercise Q.8
+
             function WeatherReport({
-                rainfall, min, max, city, lastFiveDaysRainfall, date, inCelsius, TemperatureStats
+                rainfall, min, max, city, lastFiveDaysRainfall, date, inCelsius, TemperatureStats, imageUrl
             }) {
                 const stats = new TemperatureStats( min, max );
                 return (
@@ -29,6 +32,7 @@
                         <p>Min: {inCelsius( stats.min )}</p>
                         <p>Max: {inCelsius( stats.max )}</p>
                         <p>Last 5 days rainfall: {lastFiveDaysRainfall.join( ', ')}</p>
+                        <img src={imageUrl} />
                     </div>
                 );
             }
@@ -60,7 +64,8 @@
                 lastFiveDaysRainfall,
                 date,
                 inCelsius,
-                TemperatureStats
+                TemperatureStats,
+                imageUrl: "./user.jpeg"
             };
 
             ReactDOM.render( <WeatherReport {...props} x={100} />, document.getElementById( 'root' ) );
