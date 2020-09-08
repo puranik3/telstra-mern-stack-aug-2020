@@ -30,9 +30,11 @@
             }
 
             function WeatherReport({
-                rainfall, min, max, city, lastFiveDaysRainfall, date, inCelsius, TemperatureStats, imageUrl
+                min, max, city, date, inCelsius, TemperatureStats, imageUrl, ...rainfallProps
             }) {
                 const stats = new TemperatureStats( min, max );
+                console.log( rainfallProps );
+                
                 return (
                     <div className="alert alert-primary">
                         <h1>{city}</h1>
@@ -40,7 +42,7 @@
                         <p>Date: {date.toTimeString()}</p>
                         <p>Min: {inCelsius( stats.min )}</p>
                         <p>Max: {inCelsius( stats.max )}</p>
-                        <RainfallReport rainfall={rainfall} lastFiveDaysRainfall={lastFiveDaysRainfall} />
+                        <RainfallReport {...rainfallProps} />
                         <img src={imageUrl} />
                     </div>
                 );
