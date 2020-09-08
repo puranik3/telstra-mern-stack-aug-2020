@@ -17,6 +17,37 @@
 
         <script type="text/babel">
             // Step 1: Copy over code from previous exercise. Add some styles inline using JSX syntax for inline styles.
+            const stylesForDiv = {
+                color: 'olive',
+                fontSize: '32px'
+            };
+
+            const mainStyles = {
+                textDecoration: 'underline'
+            };
+
+            const combinedMainStyles = {
+                ...stylesForDiv,
+                ...mainStyles
+            };
+
+            ReactDOM.render(
+                <React.Fragment>
+                    <div style={combinedMainStyles}>Hello Styles</div>
+                    <div style={stylesForDiv}>Hello Styles</div>
+                </React.Fragment>,
+                document.getElementById( 'root' )
+            );
+
+            // Exercise
+            // <App tasks={tasks} />
+
+            // function App( props ) {
+                // return (
+                //     <TaskInput />
+                //     <TaskList />
+                // )
+            // }
         </script>
     </body>
 </html>

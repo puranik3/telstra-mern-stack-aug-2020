@@ -25,6 +25,7 @@
                     <React.Fragment>
                         <p>Rainfall: {rainfall}</p>
                         <p>Last 5 days rainfall: {lastFiveDaysRainfall.join( ', ')}</p>
+                        <p>{name} {age}</p>
                     </React.Fragment>
                 );
             }
@@ -34,7 +35,7 @@
             }) {
                 const stats = new TemperatureStats( min, max );
                 console.log( rainfallProps );
-                
+
                 return (
                     <div className="alert alert-primary">
                         <h1>{city}</h1>
@@ -76,10 +77,10 @@
                 date,
                 inCelsius,
                 TemperatureStats,
-                imageUrl: "./user.jpeg"
+                imageUrl: "./user.jpeg",
             };
 
-            ReactDOM.render( <WeatherReport {...props} x={100} />, document.getElementById( 'root' ) );
+            ReactDOM.render( <WeatherReport {...props} />, document.getElementById( 'root' ) );
         </script>
     </body>
 </html>
