@@ -17,8 +17,21 @@
 
         <script type="text/babel">
             // Step 2: Define a WeatherReport (function-based) component. Use the received props to display details in a Bootstrap card (b4-card-default). Make sure to use className="" instead of class="" to aply CSS classes within JSX.
-            
-
+            function WeatherReport({
+                rainfall, min, max, city, lastFiveDaysRainfall, date, inCelsius, TemperatureStats
+            }) {
+                const stats = new TemperatureStats( min, max );
+                return (
+                    <div className="alert alert-primary">
+                        <h1>{city}</h1>
+                        <hr />
+                        <p>Date: {date.toTimeString()}</p>
+                        <p>Min: {inCelsius( stats.min )}</p>
+                        <p>Max: {inCelsius( stats.max )}</p>
+                        <p>Last 5 days rainfall: {lastFiveDaysRainfall.join( ', ')}</p>
+                    </div>
+                );
+            }
 
             const rainfall = 12.5, min = 50, max = 72, city = 'San Jose';
             const lastFiveDaysRainfall = [ 3.2, 0, 10.5, 9.0, 11.2 ];
@@ -37,8 +50,20 @@
             }
 
             // Step 1: Render a WeatherReport element and pass data of different types as props
+            
             // Step 3: Gather all the props to be passed in an object (say props), and pass it using props spread syntax ({ ...props } when creating the element)
-            ReactDOM.render( /* your element goes in here */, document.getElementById( 'root' ) );
+            const props = {
+                rainfall,
+                min,
+                max,
+                city,
+                lastFiveDaysRainfall,
+                date,
+                inCelsius,
+                TemperatureStats
+            };
+
+            ReactDOM.render( <WeatherReport {...props} x={100} />, document.getElementById( 'root' ) );
         </script>
     </body>
 </html>
