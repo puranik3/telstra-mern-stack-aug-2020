@@ -20,7 +20,8 @@ const productSchema = new mongoose.Schema({
         values: [ 'Electronics', 'Books', 'Clothes', 'Appliances' ],
         message: 'Unsupported category'
     },
-    imageUrl: String
+    imageUrl: String,
+    releaseDate: Date
 });
 
 // generate a model class from the schema

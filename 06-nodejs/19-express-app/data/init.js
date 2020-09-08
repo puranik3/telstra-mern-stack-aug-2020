@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
+mongoose.set( 'useFindAndModify', false );
+
 // create models
 require( '../models/Product' );
 
-mongoose.connect( 'mongodb://localhost/mystore', { useNewUrlParser: true } );
+mongoose.connect( 'mongodb://localhost/mystore', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 const connection = mongoose.connection;
 
