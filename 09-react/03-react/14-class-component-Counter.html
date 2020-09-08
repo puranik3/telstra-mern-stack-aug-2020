@@ -17,6 +17,49 @@
 
         <script type="text/babel">
             // Step 1: Write a class-based component called "Counter" that shows a counter value (starting 0), and 2 buttons - "+" and "-". Clicking "+" increments the counter, and clicking "-" decrements the counter. The markup to be rendered this is provided below.
+            
+            // internally in React
+            // increment = this.increment;
+            
+            // there was a click on the button
+            // increment()
+
+            class Counter extends React.Component {
+                state = {
+                    num: 0
+                };
+
+                constructor( props )  {
+                    super( props );
+
+                    // this.increment = this.increment.bind( this );
+                }
+
+                increment = () => {
+                    console.log( 'increment this = ', this );
+                    this.setState({
+                        num: this.state.num + 1
+                    });
+                }
+                
+                decrement = () => {
+                    console.log( 'decrement this = ', this );
+                    this.setState({
+                        num: this.state.num - 1
+                    });
+                }
+
+                render() {
+                    console.log( 'in render this = ', this );
+                    return (
+                        <div>
+                            <span>{this.state.num}</span>
+                            <button onClick={this.increment}>+</button>
+                            <button onClick={this.decrement}>-</button>
+                        </div>
+                    );
+                }
+            }
 
             // Step 2: Try using state which is setup using class property syntax
             

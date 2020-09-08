@@ -14,6 +14,8 @@
 - Exercises 23, 26 from exercises.md
 - Calculator implementation in JS
 - Exercises 24, 25 from exercises.md
+- React
+    - Exercises 10, 11
 
 # Self-exploration (part of quiz/hands-on)
 ## CSS
