@@ -15,6 +15,7 @@
 - Calculator implementation in JS
 - Exercises 24, 25 from exercises.md
 - React
+    - 16-Stopwatch (in demos)
     - Exercises 10, 11
 
 # Self-exploration (part of quiz/hands-on)

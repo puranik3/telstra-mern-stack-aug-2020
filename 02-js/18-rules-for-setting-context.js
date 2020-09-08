@@ -14,7 +14,7 @@ const john = {
     }
 };
 
-// celebrateBirthday(); // this -> global
+celebrateBirthday(); // this -> global
 john.celebrateBirthday(); // this -> john
 
 console.log( celebrateBirthday === john.celebrateBirthday ); // true
