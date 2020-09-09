@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { getWorkshops } from '../services/workshops';
 
+import './WorkshopsList.css';
+
 export default class WorkshopsList extends Component {
     state = {
         status: WorkshopsList.Status.LOADING_WORKSHOPS,
@@ -11,16 +13,16 @@ export default class WorkshopsList extends Component {
 
     render() {
         const { status, workshops } = this.state;
-        const el;
+        let el;
 
         switch( status ) {
             case WorkshopsList.Status.LOADING_WORKSHOPS:
                 /* b4-alert-dismissible */
                 el = (
-                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <div className="alert alert-primary alert-dismissible fade show" role="alert">
+                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">Close</span>
+                            <span className="sr-only">Close</span>
                         </button>
                         <strong>Workshops are being loaded. Hang on!</strong>
                     </div>
@@ -28,10 +30,44 @@ export default class WorkshopsList extends Component {
                 break;
             case WorkshopsList.Status.LOADED_WORKSHOPS:
                 el = (
-
+                    <div className="row">
+                        {
+                            workshops.map( workshop => (
+                                <div className="col-4 d-flex">
+                                    <div className="card w-100 my-3 d-flex flex-column">
+                                        <div className="card-body">
+                                            <div className="card-img-container d-flex flex-column justify-content-center">
+                                                <img className="card-img-top w-50 d-block mx-auto" src={workshop.imageUrl} alt={workshop.description} />
+                                            </div>
+                                            <h4 className="card-title">{workshop.name}</h4>
+                                            <div className="card-text">
+                                                <div>
+                                                    <span>{workshop.startDate}</span> - <span>{workshop.endDate}</span>
+                                                </div>
+                                                <div>
+                                                    <span>{workshop.time}</span>
+                                                </div>
+                                                <div className="my-3">
+                                                    {workshop.description}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
                 );
                 break;
         }
+
+        return (
+            <div className="container my-4">
+                <h1>Workshops List</h1>
+                <hr />
+                {el}
+            </div>
+        )
     }
 
     componentDidMount() {
