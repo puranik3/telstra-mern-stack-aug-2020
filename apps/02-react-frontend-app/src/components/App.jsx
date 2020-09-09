@@ -4,7 +4,9 @@ import NavBar from './NavBar';
 import Home from './Home';
 import WorkshopsList from './WorkshopsList';
 import WorkshopDetails from './WorkshopDetails';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
+
+const WorkshopDetailsWithRouter = withRouter( WorkshopDetails );
 
 function App(props) {
     return (
@@ -16,9 +18,10 @@ function App(props) {
             <Route path="/workshops" exact>
                 <WorkshopsList />
             </Route>
-            <Route path="/workshops/:id">
-                <WorkshopDetails />
-            </Route>
+            {/* <Route path="/workshops/:id">
+                <WorkshopDetailsWithRouter />
+            </Route> */}
+            <Route path="/workshops/:id" component={WorkshopDetailsWithRouter} />
         </div>
     );
 }

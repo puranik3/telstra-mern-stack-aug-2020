@@ -1,6 +1,7 @@
 // rcc
 import React, { Component } from 'react';
 import { getWorkshops } from '../services/workshops';
+import { Link } from 'react-router-dom';
 
 import './WorkshopsList.css';
 
@@ -37,7 +38,7 @@ export default class WorkshopsList extends Component {
                         {
                             workshops.map( workshop => (
                                 <div className="col-4 d-flex" key={workshop.id}>
-                                    <div className="card w-100 my-3 d-flex flex-column">
+                                    <Link className="card w-100 my-3 d-flex flex-column text-reset text-decoration-none" to={`/workshops/${workshop.id}`}>
                                         <div className="card-body">
                                             <div className="card-img-container d-flex flex-column justify-content-center">
                                                 <img className="card-img-top w-50 d-block mx-auto" src={workshop.imageUrl} alt={workshop.description} />
@@ -53,7 +54,7 @@ export default class WorkshopsList extends Component {
                                                 <div className="my-3" dangerouslySetInnerHTML={{ __html: workshop.description }}></div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             ))
                         }

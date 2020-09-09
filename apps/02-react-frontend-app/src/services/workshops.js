@@ -10,7 +10,6 @@ const getWorkshopById = ( id ) => {
         .then( response => response.data );
 };
 
-
 export {
     getWorkshops,
     getWorkshopById

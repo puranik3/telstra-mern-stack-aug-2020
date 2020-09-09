@@ -94,11 +94,11 @@ export default class WorkshopDetails extends Component {
             <div className="container my-4">
                 {el}
             </div>
-        )
+        );
     }
 
     componentDidMount() {
-        getWorkshopById( 1 )
+        getWorkshopById( this.props.match.params.id )
             .then( workshop => {
                 this.setState({
                     status: WorkshopDetails.Status.LOADED_WORKSHOP_DETAILS,
