@@ -12,12 +12,15 @@ export default class WorkshopsList extends Component {
     };
 
     render() {
-        const { status, workshops } = this.state;
+        const { status, workshops, error } = this.state;
         let el;
 
         switch( status ) {
             case WorkshopsList.Status.LOADING_WORKSHOPS:
                 /* b4-alert-dismissible */
+                // <Alert theme="primary">
+                //     Workshops are being loaded. Hang on!
+                // </Alert>
                 el = (
                     <div className="alert alert-primary alert-dismissible fade show" role="alert">
                         <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -47,9 +50,7 @@ export default class WorkshopsList extends Component {
                                                 <div>
                                                     <span>{workshop.time}</span>
                                                 </div>
-                                                <div className="my-3">
-                                                    {workshop.description}
-                                                </div>
+                                                <div className="my-3" dangerouslySetInnerHTML={{ __html: workshop.description }}></div>
                                             </div>
                                         </div>
                                     </div>
@@ -59,6 +60,16 @@ export default class WorkshopsList extends Component {
                     </div>
                 );
                 break;
+            case WorkshopsList.Status.ERROR_LOADING_WORKSHOPS:
+                el = (
+                    <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span className="sr-only">Close</span>
+                        </button>
+                        <strong>{error.message}</strong>
+                    </div>
+                );
         }
 
         return (
@@ -78,6 +89,12 @@ export default class WorkshopsList extends Component {
                     workshops
                 });
             })
+            .catch( error => {
+                this.setState({
+                    status: WorkshopsList.Status.ERROR_LOADING_WORKSHOPS,
+                    error
+                });
+            });
     }
 }
 

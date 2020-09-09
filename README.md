@@ -58,6 +58,9 @@
 ## MongoDB
 - Explore how to connect to MongoDB server - https://docs.mongodb.com/drivers/node/quick-start. Connect to some DB (say persons), and get a document from a collection using findOne() (say person with name John) and print in console.
 
+## React
+- Build the Alert component with theme prop and children as content to show in alert box
+
 
 # Self-exploration (not part of quiz)
 ## CSS
