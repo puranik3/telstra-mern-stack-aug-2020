@@ -53,6 +53,7 @@
 - removing class, checking if a class exists
 - how can we figure out if shift key or ctrl key is pressed when button is clicked?
 - Array reduce() method
+- What happens when a promise resolve handler (i.e. the function passed to then() returns a promise itself - when is the resolve handler of the next then() chained to it called??)
 
 ## MongoDB
 - Explore how to connect to MongoDB server - https://docs.mongodb.com/drivers/node/quick-start. Connect to some DB (say persons), and get a document from a collection using findOne() (say person with name John) and print in console.
