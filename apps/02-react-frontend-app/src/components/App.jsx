@@ -21,7 +21,7 @@ function App(props) {
             {/* <Route path="/workshops/:id">
                 <WorkshopDetailsWithRouter />
             </Route> */}
-            <Route path="/workshops/:id" component={WorkshopDetailsWithRouter} />
+            <Route path="/workshops/:id" component={WorkshopDetails} />
         </div>
     );
 }
