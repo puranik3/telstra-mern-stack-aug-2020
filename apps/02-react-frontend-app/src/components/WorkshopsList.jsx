@@ -33,7 +33,7 @@ export default class WorkshopsList extends Component {
                     <div className="row">
                         {
                             workshops.map( workshop => (
-                                <div className="col-4 d-flex">
+                                <div className="col-4 d-flex" key={workshop.id}>
                                     <div className="card w-100 my-3 d-flex flex-column">
                                         <div className="card-body">
                                             <div className="card-img-container d-flex flex-column justify-content-center">
