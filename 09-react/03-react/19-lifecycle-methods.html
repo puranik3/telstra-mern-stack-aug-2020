@@ -23,95 +23,94 @@
              *  - componentDidUpdate( oldProps, oldState )
              * Unmounting: componentWillUnMount
              */
-            class Parent extends React.Component  {
+            
+             // mounting phase - component renders
+             // mounting phase lifecycle methods
+
+             // update phase - when data backing up the UI changes - we render again
+             // there are other methods that are called too
+             // these lifecycle methods handle side effects (of state/prop changes)
+
+             // unmounting phase
+             // there is a method that gets called (just before it goes out of the DOM)
+             // component goes out of the browser
+
+            class X extends React.Component {
+                // mounting phase
                 constructor( props ) {
+                    console.log( 'constructor' );
                     super( props );
 
-                    console.log( 'Parent::constructor' );
-                    
                     this.state = {
-                        x: 1
+                        x: 100,
+                        y: 200
                     };
                 }
 
-                componentWillMount() {
-                    console.log( 'Parent::componentWillMount' );
-                }
-
                 render() {
-                    console.log( 'Parent::render' );
+                    console.log( 'render' );
+                    console.log( 'render this.state.x = ', this.state.x );
+                    // create UI as a function of state and props
                     return (
                         <div>
-                            <h1>Parent</h1>
-                            {this.props.message}
-                            <br/>
-                            {this.props.x ? this.props.x : null}
+                            Hello x = {this.state.x}, p = {this.props.p}
+                            <button onClick={() => this.setState( { x : this.state.x + 1 } )}>Got to next page (+x)</button>
+                            <button onClick={() => this.setState( { y : this.state.y + 1 } )}>+y</button>
                         </div>
                     );
                 }
 
-                // called after initial call to render
-                // can call setState, ajax calls, setTimeout etc.
+                // fetching initial data, setINterval(), setTimeout()
                 componentDidMount() {
-                    console.log( 'Parent::componentDidMount' );
-                    setTimeout(() => {
-                        this.setState({
-                            x: 2
-                        });
-                    }, 5000);
+                    console.log( 'cdm' );
+                    console.log( 'cdm this.state.x = ', this.state.x );
+
+                    // side effect on initial load
                 }
 
-                componentWillReceiveProps( newProps ) {
-                    console.log( 'Parent::componentWillReceiveProps' );
-                    console.log( newProps );
-                }
-
+                // update phase
                 shouldComponentUpdate( newProps, newState ) {
-                    console.log( 'Parent::shouldComponentUpdate' );
-                    console.log( newProps, newState );
-                    
-                    // returning false prevents render from getting called - use it to prevent rendering if it makes no difference to UI
+                    console.log( 'scu' );
+                    console.log( 'scu this.state.x = ', this.state.x ); // state has not changed
+                    console.log( 'scu newState.x = ', newState.x );
+
+                    if( newState.x === this.state.x && newProps.p === this.props.p /* && other state/prop values that affect the UI */  ) {
+                        return false;  // do not call render(), componentDidUpdate()
+                    }
+
                     return true;
                 }
 
-                componentWillUpdate( newProps, newState ) {
-                    console.log( 'Parent::componentWillUpdate' );
-                    console.log( newProps, newState );
-                }
+                // React changes the state here
+                // render gets called here
 
-                // can call setState, ajax calls, setTimeout etc.
+                // side effects -> fetching new data
                 componentDidUpdate( oldProps, oldState ) {
-                    console.log( 'Parent::componentDidUpdate' );
-                    console.log( oldProps, oldState );
+                    // you have to be careful while calling this.setState() -> should be within some condition
+                    console.log( 'cdu' );
+                    console.log( 'cdu this.state.x = ', this.state.x );
+                    console.log( 'cdu oldState.x = ', oldState.x );
                 }
-
+                
+                // unmounting phase (before component goes out of the DOM)
+                // cleanup (clearTimeout, clearInterval etc.)
                 componentWillUnmount() {
-                    console.log( 'Parent::componentWillUnmount' )
+                    console.log( 'cwun' );
                 }
-            }
-
-            function render( message, x ) {
-                let parentInstance;
-                if( x ) {
-                    
-                } else {
-                    parentInstance = ReactDOM.render( <Parent message={message} />, document.getElementById( 'root' ) );
-                }
-
-                console.log( parentInstance );
             }
             
-            parentInstance = ReactDOM.render( 
-                <Parent message="Hello from Parent" />,
-                document.getElementById( 'root' )
-            );
+            // const x = new X( { p: , q: 2 } )
+            // x.render() and render returned UI
+            // x.componetDidMount()
+            ReactDOM.render( <X p={1} q={2} />, document.getElementById( 'root' ) );
+            
+            // no object is created (since X before render and X after render inside root)
+            // x.scu()
+            // x.render()
+            // x.cdu()
+            setTimeout( () => ReactDOM.render( <X p={3} q={2} />, document.getElementById( 'root' ) ), 5000 )
 
-            setTimeout(function() {
-                parentInstance = ReactDOM.render( 
-                    <Parent message="How are you?" x="Bye" />,
-                    document.getElementById( 'root' )
-                );
-            }, 10000);
+            setTimeout( () => ReactDOM.render( <div />, document.getElementById( 'root' ) ), 70000 )
         </script>
     </body>
 </html>
