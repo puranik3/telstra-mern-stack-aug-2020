@@ -5,9 +5,43 @@ class AddSession extends Component {
     state = {
         values: {
             sequenceId: '',
-            name: ''
-        }
+            name: '',
+            /* please do similarly for other inputs */
+        },
+        errors: {
+            sequenceId: [],
+            /* please do similarly for other inputs */
+        },
+        isValid: false
     };
+
+    validate = () => {
+        const { values: { sequenceId, name } } = this.state;
+
+        const errors = {
+            sequenceId: [],
+            /* please do similarly for other inputs */
+        };
+        let isValid = true;
+        
+        // sequenceId cannot be empty
+        if( sequenceId.trim() === '' ) {
+            errors.sequenceId.push( 'Sequence ID cannot be empty' );
+            isValid = false;
+        }
+
+        // sequenceId MUST be a number
+        if( ! ( /^\d+$/.test( sequenceId ) ) ) {
+            errors.sequenceId.push( 'Sequence can contain only digits' );
+            isValid = false;
+        }
+
+        // similarly do all validations
+        this.setState({
+            errors,
+            isValid
+        });
+    }
 
     updateValue = ( event ) => {
         const value = event.target.value;
@@ -18,11 +52,11 @@ class AddSession extends Component {
                 ...this.state.values,
                 [key]: value
             }
-        });
+        }, this.validate);
     }
 
     render() {
-        const { values: { sequenceId, name } } = this.state;
+        const { values: { sequenceId, name }, errors: { sequenceId : sequenceIdErrs }  } = this.state;
 
         return (
             <div className="container">
@@ -40,15 +74,14 @@ class AddSession extends Component {
                             <label htmlFor="sequenceId" className="col-sm-3 col-form-label">Sequence ID</label>
                             <div className="col-sm-9">
                                 <input type="text" className="form-control" name="sequenceId" id="sequenceId" placeholder="" aria-describedby="sequenceHelpId" value={sequenceId} onChange={this.updateValue} />
-                                {sequenceId}
                                 <small id="sequenceHelpId" className="text-muted">Sequence ID is the serial number of the session in the workshop</small>
+                                {sequenceIdErrs.map( err => <div>{err}</div> )}
                             </div>
                         </div>
                         <div className="form-group row">
                             <label htmlFor="name" className="col-sm-3 col-form-label">Name</label>
                             <div className="col-sm-9">
                                 <input type="text" className="form-control" name="name" id="name" placeholder=""  aria-describedby="NameHelpId" value={name} onChange={this.updateValue} />
-                                {name}
                                 <small id="NameHelpId" className="text-muted">The title of the session</small>
                             </div>
                         </div>
