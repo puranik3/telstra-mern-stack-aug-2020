@@ -14,14 +14,27 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 
         <script type="text/babel">
-            // Step 1: Build a Stopwatch using useState() and useEffect
+            // Step 1: Build a Stopwatch using useState() and useEffect()
             function Stopwatch( props ) {
+                const [ running, setRunning ] = React.useState( false );
+
+                // [] as 2nd argument => effect runs on initial render only (cdm)
+                React.useEffect( () => console.log( 'effect 1' ), [] );
+
+                // no 2nd argument (cdm + cdu)
+                React.useEffect( () => console.log( 'effect 2' ) );
+
+                const start = () => setRunning( true );
+                const stop = () => setRunning( false );
+
+                console.log( 'render' );
+
                 return (
                     <div>
-                        Time elapsed : {timeElapsed}
+                        Time elapsed : {/*timeElapsed*/}
                         <button onClick={start}>Start</button>
                         <button onClick={stop}>Stop</button>
-                        <button onClick={reset}>Reset</button>
+                        {/*<button onClick={reset}>Reset</button>*/}
                     </div>
                 );
             }
