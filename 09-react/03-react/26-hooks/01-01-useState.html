@@ -15,11 +15,16 @@
 
         <script type="text/babel">
             function Counter( props ) {
+                const [ counter, setCounter ] = React.useState( 0 );
+
+                const increment = () => setCounter( counter => counter + 1 );
+                const decrement = () => setCounter( counter => counter - 1 );
+
                 return (
                     <div>
                         Counter : {counter}
-                        <button>+</button>
-                        <button>-</button>
+                        <button onClick={increment}>+</button>
+                        <button onClick={decrement}>-</button>
                     </div>
                 );
             }
