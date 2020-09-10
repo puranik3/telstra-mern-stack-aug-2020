@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import { getWorkshopById } from '../services/workshops';
 import Moment from 'react-moment';
+import { Route, Link, Switch } from 'react-router-dom';
+import AddSession from './AddSession';
+import SessionsList from './SessionsList';
 
 export default class WorkshopDetails extends Component {
     state = {
@@ -32,50 +35,65 @@ export default class WorkshopDetails extends Component {
                 break;
             case WorkshopDetails.Status.LOADED_WORKSHOP_DETAILS:
                 el = (
-                    <div>
-                        <h2>
-                            {workshop.name}
-                        </h2>
-                        <hr />
-                        <div className="row my-4">
-                            <div className="col-4">
-                                <img className="img-fluid" src={workshop.imageUrl} alt={workshop.description} />
-                            </div>
-                            <div className="col-8">
-                                <div className="row">
-                                    <div className="col-3">
-                                        <p>
-                                            <small>
-                                                <Moment interval={0} format="MMM D YYYY">
-                                                    {workshop.startDate}
-                                                </Moment>
-                                                {" - "}
-                                                <Moment interval={0} format="MMM D YYYY">
-                                                    {workshop.endDate}
-                                                </Moment>
-                                            </small>
-                                        </p>
-                                        <p>
-                                            <small className="text-muted">
-                                                {workshop.time}
-                                            </small>
-                                        </p>
-                                    </div>
-                                    <div className="col-3">
-                                        <p>
-                                            <small>Online</small>
-                                        </p>
-                                        <p>
-                                            <small>In person</small>
-                                        </p>
-                                    </div>
+                    <>
+                        <div>
+                            <h2>
+                                {workshop.name}
+                            </h2>
+                            <hr />
+                            <div className="row my-4">
+                                <div className="col-4">
+                                    <img className="img-fluid" src={workshop.imageUrl} alt={workshop.description} />
                                 </div>
-                                <div className="row">
-                                    <div className="col-12" dangerouslySetInnerHTML={{__html: workshop.description}}></div>
+                                <div className="col-8">
+                                    <div className="row">
+                                        <div className="col-3">
+                                            <p>
+                                                <small>
+                                                    <Moment interval={0} format="MMM D YYYY">
+                                                        {workshop.startDate}
+                                                    </Moment>
+                                                    {" - "}
+                                                    <Moment interval={0} format="MMM D YYYY">
+                                                        {workshop.endDate}
+                                                    </Moment>
+                                                </small>
+                                            </p>
+                                            <p>
+                                                <small className="text-muted">
+                                                    {workshop.time}
+                                                </small>
+                                            </p>
+                                        </div>
+                                        <div className="col-3">
+                                            <p>
+                                                <small>Online</small>
+                                            </p>
+                                            <p>
+                                                <small>In person</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-12" dangerouslySetInnerHTML={{__html: workshop.description}}></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div>
+                            <div>
+                                <Link to={this.props.match.url}>Sessions</Link>
+                                &nbsp;&nbsp;
+                                <Link to={`${this.props.match.url}/add`}>Add session</Link>
+                            </div>
+                            <div>
+                                <Switch>
+                                    <Route path={`${this.props.match.path}/add`} component={AddSession} />
+                                    <Route path={this.props.match.path} component={SessionsList} />
+                                </Switch>
+                            </div>
+                        </div>
+                    </>
                 );
                 break;
             case WorkshopDetails.Status.ERROR_LOADING_WORKSHOP_DETAILS:
