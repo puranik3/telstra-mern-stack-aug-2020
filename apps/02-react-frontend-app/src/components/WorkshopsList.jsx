@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 import './WorkshopsList.css';
 
 export default function WorkshopsList( props ) {
-    const [ state, setState ] = React.useState({
+    const [ state, setState ] = useState({
         status: WorkshopsList.Status.LOADING_WORKSHOPS,
         workshops: null,
         error: null
     });
 
-    React.useEffect(
+    useEffect(
         () => {
             getWorkshops()
                 .then( workshops => {
@@ -26,9 +26,9 @@ export default function WorkshopsList( props ) {
                         status: WorkshopsList.Status.ERROR_LOADING_WORKSHOPS,
                         error
                     });
-                })
+                });
         },
-        []
+        [ ]
     );
 
     const { status, workshops, error } = state;
