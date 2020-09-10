@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addSession } from '../services/workshops';
 
 class AddSession extends Component {
     /* controlled components pattern */
@@ -55,8 +56,17 @@ class AddSession extends Component {
         }, this.validate);
     }
 
+    addSession = ( event ) => {
+        event.preventDefault();
+
+        addSession( this.props.match.params.id, this.state.values )
+            .then( updatedSession => alert( `Session with id = ${updatedSession.id} was added` ) )
+            .catch( err => alert( err.message ) )
+            .then( () => this.props.history.push( `/workshops/${this.props.match.params.id}` ) );
+    }
+
     render() {
-        const { values: { sequenceId, name }, errors: { sequenceId : sequenceIdErrs }  } = this.state;
+        const { values: { sequenceId, name }, errors: { sequenceId : sequenceIdErrs }, isValid } = this.state;
 
         return (
             <div className="container">
@@ -69,7 +79,7 @@ class AddSession extends Component {
                     </div>
                 </div>
                 <div className="col-12">
-                    <form>
+                    <form onSubmit={this.addSession}>
                         <div className="form-group row">
                             <label htmlFor="sequenceId" className="col-sm-3 col-form-label">Sequence ID</label>
                             <div className="col-sm-9">
@@ -120,7 +130,7 @@ class AddSession extends Component {
                         </div>
                         <div className="form-group row">
                             <div className="offset-sm-3 col-sm-9">
-                                <button type="submit" className="btn btn-primary mr-2">Add session</button>
+                                <button type="submit" className="btn btn-primary mr-2" disabled={!isValid}>Add session</button>
                                 <button type="button" className="btn btn-danger">Cancel</button>
                             </div>
                         </div>
