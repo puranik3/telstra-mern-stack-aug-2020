@@ -21,9 +21,18 @@
                 React.useEffect(
                     () => {
                         console.log( 'effect' );
+
+                        let id;
+
                         if( running === true ) {
-                            setInterval( () => setTimeElapsed( timeElapsed => timeElapsed + 1 ), 1000 );
+                            id = setInterval( () => setTimeElapsed( timeElapsed => timeElapsed + 1 ), 1000 );
                         }
+
+                        // cleanup function
+                        // this function executes before the an effect executes the next time
+                        return () => {
+                            clearInterval( id );
+                        };
                     },
                     [ running ]
                 );
