@@ -1,28 +1,79 @@
 import React, { Component } from 'react';
+import { addSession } from '../services/sessions';
 
 class AddSession extends Component {
-    /* controlled components pattern */
     state = {
         values: {
             sequenceId: '',
             name: ''
-        }
+        },
+        errors: {
+            sequenceId: [],
+            name: []
+        },
+        isValid: false
     };
 
-    updateValue = ( event ) => {
-        const value = event.target.value;
-        const key = event.target.name;
+    validate = () => {
+        // eslint-disable-next-line
+        const { sequenceId, name } = this.state.values;
+        const sequenceIdErrs = [], nameErrs = [];
+        let isValid = true;
 
-        this.setState({
-            values: {
-                ...this.state.values,
-                [key]: value
+        // sequenceId tests
+        // must be number
+        if( isNaN( parseInt( sequenceId ) ) ) {
+            sequenceIdErrs.push( 'SequenceID must be a number' );
+            isValid = false;
+        }
+
+        this.setState(
+            curState => {
+                return {
+                    errors: {
+                        sequenceId: sequenceIdErrs,
+                        name: nameErrs
+                    },
+                    isValid
+                };
             }
-        });
+        );
+    }
+
+    updateValues = ( event ) => {
+        const key = event.target.name;
+        const value = event.target.value;
+
+        this.setState(
+            curState => {
+                return {
+                    values: {
+                        ...curState.values,
+                        [key]: value
+                    }
+                };
+            },
+            this.validate
+        );
+    }
+
+    addSession = async ( event ) => {
+        event.preventDefault();
+
+        try {
+            const sessionUpdated = await addSession( this.props.match.params.id, this.state.values );
+            alert( 'New session has been added' );
+
+            // Do the redirect using history.push( url ) to navigate user to /workshops/<id>
+        } catch( error ) {
+            alert( 'Something went wrong when trying to add session' );
+        }
     }
 
     render() {
-        const { values: { sequenceId, name } } = this.state;
+        const { sequenceId, name } = this.state.values;
+        const { sequenceId : sequenceIdErrs, name : nameErrs } = this.state.errors;
+        const isValid = this.state.isValid;
 
         return (
             <div className="container">
@@ -35,20 +86,21 @@ class AddSession extends Component {
                     </div>
                 </div>
                 <div className="col-12">
-                    <form>
+                    <form onSubmit={this.addSession}>
                         <div className="form-group row">
                             <label htmlFor="sequenceId" className="col-sm-3 col-form-label">Sequence ID</label>
                             <div className="col-sm-9">
-                                <input type="text" className="form-control" name="sequenceId" id="sequenceId" placeholder="" aria-describedby="sequenceHelpId" value={sequenceId} onChange={this.updateValue} />
-                                {sequenceId}
+                                <input type="text" className="form-control" name="sequenceId" id="sequenceId" placeholder="" aria-describedby="sequenceHelpId" onChange={this.updateValues} value={sequenceId} />
                                 <small id="sequenceHelpId" className="text-muted">Sequence ID is the serial number of the session in the workshop</small>
+                                {
+                                    sequenceIdErrs.map( error => <div>{error}</div> )
+                                }
                             </div>
                         </div>
                         <div className="form-group row">
                             <label htmlFor="name" className="col-sm-3 col-form-label">Name</label>
                             <div className="col-sm-9">
-                                <input type="text" className="form-control" name="name" id="name" placeholder=""  aria-describedby="NameHelpId" value={name} onChange={this.updateValue} />
-                                {name}
+                                <input type="text" className="form-control" name="name" id="name" placeholder=""  aria-describedby="NameHelpId" onChange={this.updateValues} />
                                 <small id="NameHelpId" className="text-muted">The title of the session</small>
                             </div>
                         </div>
@@ -87,7 +139,7 @@ class AddSession extends Component {
                         </div>
                         <div className="form-group row">
                             <div className="offset-sm-3 col-sm-9">
-                                <button type="submit" className="btn btn-primary mr-2">Add session</button>
+                                <button type="submit" className="btn btn-primary mr-2" disabled={!isValid}>Add session</button>
                                 <button type="button" className="btn btn-danger">Cancel</button>
                             </div>
                         </div>

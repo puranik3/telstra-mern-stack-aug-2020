@@ -1,29 +1,7 @@
 import React, { Component } from 'react';
 
 class AddSession extends Component {
-    /* controlled components pattern */
-    state = {
-        values: {
-            sequenceId: '',
-            name: ''
-        }
-    };
-
-    updateValue = ( event ) => {
-        const value = event.target.value;
-        const key = event.target.name;
-
-        this.setState({
-            values: {
-                ...this.state.values,
-                [key]: value
-            }
-        });
-    }
-
     render() {
-        const { values: { sequenceId, name } } = this.state;
-
         return (
             <div className="container">
                 <div className="row my-4">
@@ -39,16 +17,14 @@ class AddSession extends Component {
                         <div className="form-group row">
                             <label htmlFor="sequenceId" className="col-sm-3 col-form-label">Sequence ID</label>
                             <div className="col-sm-9">
-                                <input type="text" className="form-control" name="sequenceId" id="sequenceId" placeholder="" aria-describedby="sequenceHelpId" value={sequenceId} onChange={this.updateValue} />
-                                {sequenceId}
+                                <input type="text" className="form-control" name="sequenceId" id="sequenceId" placeholder="" aria-describedby="sequenceHelpId" />
                                 <small id="sequenceHelpId" className="text-muted">Sequence ID is the serial number of the session in the workshop</small>
                             </div>
                         </div>
                         <div className="form-group row">
                             <label htmlFor="name" className="col-sm-3 col-form-label">Name</label>
                             <div className="col-sm-9">
-                                <input type="text" className="form-control" name="name" id="name" placeholder=""  aria-describedby="NameHelpId" value={name} onChange={this.updateValue} />
-                                {name}
+                                <input type="text" className="form-control" name="name" id="name" placeholder=""  aria-describedby="NameHelpId" />
                                 <small id="NameHelpId" className="text-muted">The title of the session</small>
                             </div>
                         </div>
