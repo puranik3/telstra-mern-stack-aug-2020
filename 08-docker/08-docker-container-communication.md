@@ -1,0 +1,3 @@
+- Two ways of communication
+    - Legacy linking
+    - Create Network and add container to the network

@@ -6,7 +6,7 @@ mongoose.set('returnOriginal', false);
 // create models
 require( '../models/Product' );
 
-mongoose.connect( 'mongodb://localhost/mystore', {
+mongoose.connect( 'mongodb://mongodb/mystore', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
