@@ -25,6 +25,9 @@ or
 docker stop <container id>
 docker rm <container id>
 
+// remove ALL containers (running/stopped) forcefully
+docker rm -f $(docker ps -a -q)
+
 // remove an image
 docker rmi hello-world
 
