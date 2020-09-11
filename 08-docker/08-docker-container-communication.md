@@ -10,4 +10,8 @@
             - docker run -d --net=web-app-network --name mongodb mongo
             - docker run -d -p 10000:10000 --net=web-app-network puranik3/node-app
         - all containers in a n/w can communicate with one another
-        - a container can be in multiple networks
+        - a container can be in multiple network
+    - List networks
+        - docker network inspect web-app-network
+    - Inspect 
+        - docker network inspect <network-name>
