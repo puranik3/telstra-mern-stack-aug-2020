@@ -1,5 +1,7 @@
 ## API Design
 
+EXERCISE: PLEASE DESIGN ALL API endpoints (remaining ones)
+
 GET/POST/PATCH/PUT/DELETE /endpoint
     - Query params (?param1=value&... if any)
     - Path params ( /path/:something/... etc.)
