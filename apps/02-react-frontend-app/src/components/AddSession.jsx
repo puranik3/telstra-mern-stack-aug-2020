@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { addSession } from '../services/workshops';
+import { toast } from 'react-toastify';
 
 class AddSession extends Component {
     /* controlled components pattern */
@@ -60,8 +61,8 @@ class AddSession extends Component {
         event.preventDefault();
 
         addSession( this.props.match.params.id, this.state.values )
-            .then( updatedSession => alert( `Session with id = ${updatedSession.id} was added` ) )
-            .catch( err => alert( err.message ) )
+            .then( updatedSession => toast( `Session with id = ${updatedSession.id} was added` ) )
+            .catch( err => toast( err.message ) )
             .then( () => this.props.history.push( `/workshops/${this.props.match.params.id}` ) );
     }
 

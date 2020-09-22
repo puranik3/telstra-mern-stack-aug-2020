@@ -115,20 +115,20 @@ export default class WorkshopDetails extends Component {
         );
     }
 
-    componentDidMount() {
-        getWorkshopById( this.props.match.params.id )
-            .then( workshop => {
-                this.setState({
-                    status: WorkshopDetails.Status.LOADED_WORKSHOP_DETAILS,
-                    workshop
-                });
-            })
-            .catch( error => {
-                this.setState({
-                    status: WorkshopDetails.Status.ERROR_LOADING_WORKSHOP_DETAILS,
-                    error
-                });
+    async componentDidMount() {
+        try {
+            const workshop = await getWorkshopById( this.props.match.params.id )
+            
+            this.setState({
+                status: WorkshopDetails.Status.LOADED_WORKSHOP_DETAILS,
+                workshop
             });
+        } catch( error ) {
+            this.setState({
+                status: WorkshopDetails.Status.ERROR_LOADING_WORKSHOP_DETAILS,
+                error
+            });
+        }
     }
 }
 

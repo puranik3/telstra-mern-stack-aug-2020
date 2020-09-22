@@ -14,19 +14,23 @@ export default function WorkshopsList( props ) {
 
     useEffect(
         () => {
-            getWorkshops()
-                .then( workshops => {
+            const handleGetWorkshops = async () => {
+                try {
+                    const workshops = await getWorkshops();
+            
                     setState({
                         status: WorkshopsList.Status.LOADED_WORKSHOPS,
                         workshops
                     });
-                })
-                .catch( error => {
+                } catch( error ) {
                     setState({
                         status: WorkshopsList.Status.ERROR_LOADING_WORKSHOPS,
                         error
                     });
-                });
+                }
+            };
+
+            handleGetWorkshops();
         },
         [ ]
     );

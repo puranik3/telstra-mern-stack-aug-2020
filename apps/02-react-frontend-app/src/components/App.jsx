@@ -6,6 +6,9 @@ import WorkshopsList from './WorkshopsList';
 import WorkshopDetails from './WorkshopDetails';
 import { Route, withRouter } from 'react-router-dom';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const WorkshopDetailsWithRouter = withRouter( WorkshopDetails );
 
 function App(props) {
@@ -18,10 +21,21 @@ function App(props) {
             <Route path="/workshops" exact>
                 <WorkshopsList />
             </Route>
-            {/* <Route path="/workshops/:id">
+            <Route path="/workshops/:id">
                 <WorkshopDetailsWithRouter />
-            </Route> */}
-            <Route path="/workshops/:id" component={WorkshopDetails} />
+            </Route>
+            {/* <Route path="/workshops/:id" component={WorkshopDetails} /> */}
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
         </div>
     );
 }
