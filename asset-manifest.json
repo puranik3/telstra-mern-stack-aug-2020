@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.d9d5f2c0.chunk.css",
-    "main.js": "/my-app/static/js/main.b4ad35a7.chunk.js",
-    "main.js.map": "/my-app/static/js/main.b4ad35a7.chunk.js.map",
-    "runtime-main.js": "/my-app/static/js/runtime-main.338f4773.js",
-    "runtime-main.js.map": "/my-app/static/js/runtime-main.338f4773.js.map",
-    "static/js/2.f821d87a.chunk.js": "/my-app/static/js/2.f821d87a.chunk.js",
-    "static/js/2.f821d87a.chunk.js.map": "/my-app/static/js/2.f821d87a.chunk.js.map",
-    "index.html": "/my-app/index.html",
-    "precache-manifest.efa87f70a67a72ea03e8edfbd53d18cf.js": "/my-app/precache-manifest.efa87f70a67a72ea03e8edfbd53d18cf.js",
-    "service-worker.js": "/my-app/service-worker.js",
-    "static/css/main.d9d5f2c0.chunk.css.map": "/my-app/static/css/main.d9d5f2c0.chunk.css.map",
-    "static/media/logo.png": "/my-app/static/media/logo.ba20fc9a.png"
+    "main.css": "/simba-coin-frontend/static/css/main.d9d5f2c0.chunk.css",
+    "main.js": "/simba-coin-frontend/static/js/main.b4ad35a7.chunk.js",
+    "main.js.map": "/simba-coin-frontend/static/js/main.b4ad35a7.chunk.js.map",
+    "runtime-main.js": "/simba-coin-frontend/static/js/runtime-main.6ad1ce9d.js",
+    "runtime-main.js.map": "/simba-coin-frontend/static/js/runtime-main.6ad1ce9d.js.map",
+    "static/js/2.f821d87a.chunk.js": "/simba-coin-frontend/static/js/2.f821d87a.chunk.js",
+    "static/js/2.f821d87a.chunk.js.map": "/simba-coin-frontend/static/js/2.f821d87a.chunk.js.map",
+    "index.html": "/simba-coin-frontend/index.html",
+    "precache-manifest.09bbaf4ba8a616fa47a7528fd46d9c74.js": "/simba-coin-frontend/precache-manifest.09bbaf4ba8a616fa47a7528fd46d9c74.js",
+    "service-worker.js": "/simba-coin-frontend/service-worker.js",
+    "static/css/main.d9d5f2c0.chunk.css.map": "/simba-coin-frontend/static/css/main.d9d5f2c0.chunk.css.map",
+    "static/media/logo.png": "/simba-coin-frontend/static/media/logo.ba20fc9a.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.338f4773.js",
+    "static/js/runtime-main.6ad1ce9d.js",
     "static/js/2.f821d87a.chunk.js",
     "static/css/main.d9d5f2c0.chunk.css",
     "static/js/main.b4ad35a7.chunk.js"
